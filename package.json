@@ -1,0 +1,19 @@
+{
+  "name": "stellaria",
+  "version": "1.0.0",
+  "description": "Discord bot to calculate the position of stars and planets and future space events",
+  "main": "index.js",
+  "scripts": {
+    "start": "node deploy-commands.js && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EntropicBlackhole/stellar.ia"
+  },
+  "author": "EntropicBlackhole",
+  "license": "ISC",
+  "dependencies": {
+    "astronomy-engine": "^2.1.4",
+    "discord.js": "^14.5.0"
+  }
+}
