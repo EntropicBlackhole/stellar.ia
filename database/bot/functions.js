@@ -5,13 +5,18 @@ exports.FormatDate = FormatDate
 exports.printEclipse = printEclipse
 exports.ParseDate = ParseDate
 exports.subStrBetweenChar = subStrBetweenChar
-
+exports.DisplayEvent = DisplayEvent
 function Pad(s, w) {
 	s = s.toFixed(0);
 	while (s.length < w) {
 		s = '0' + s;
 	}
 	return s;
+}
+
+function DisplayEvent(name, evt) {
+	let text = evt ? evt.date.toISOString() : '';
+	return (name.padEnd(32) + ' : ' + functions.ParseDate(text));
 }
 
 function FormatDate(t) {
@@ -30,10 +35,22 @@ function printEclipse(e, type) {
 	const MINUTES_PER_DAY = 24 * 60;
 	let out = ""
 	if (type == 'solar-local') {
-
+		const p1 = e.partial_begin.time;
+		out += (`${FormatDate(p1)} - Partial eclipse begins.\n`);
+		if (e.total_begin != undefined) {
+			const t1 = e.total_begin.time;
+			out += (`${FormatDate(t1)} - Total eclipse begins.\n`);
+		}
+		out += (`${FormatDate(e.peak.time)} - Peak of ${e.kind} eclipse.\n`);
+		if (e.total_end != undefined) {
+			const t2 = e.total_end.time
+			out += (`${FormatDate(t2)} - Total eclipse ends.\n`);
+		}
+		const p2 = e.partial_end.time
+		out += (`${FormatDate(p2)} - Partial eclipse ends.`);
 	}
 	else if (type == 'solar-global') {
-
+		out += `${FormatDate(e.peak)} - Peak of ${e.kind} eclipse.`
 	}
 	else if (type == 'lunar') {
 		const p1 = e.peak.AddDays(-e.sd_partial / MINUTES_PER_DAY);
@@ -49,8 +66,9 @@ function printEclipse(e, type) {
 		}
 		const p2 = e.peak.AddDays(+e.sd_partial / MINUTES_PER_DAY);
 		out += (`${FormatDate(p2)} - Partial eclipse ends.`);
-		return out;
-	} else return `Error: ${type} is not a valid type of eclipse`
+
+	} else return `Error: ${type} is not a valid type of eclipse`;
+	return out;
 }
 
 function ParseDate(text) {

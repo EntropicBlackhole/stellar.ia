@@ -47,14 +47,18 @@ module.exports = {
 			let latitude = interaction.options.getNumber('latitude')
 			let longitude = interaction.options.getNumber('longitude')
 			const observer = new Astronomy.Observer(latitude, longitude, 0);
-			let eclipse = Astronomy.SearchLocalSolarEclipse(new Date(), observer);
+			let eclipse = Astronomy.SearchLocalSolarEclipse(date, observer);
+			return interaction.reply(functions.printEclipse(eclipse, 'solar-local'));
 		}
 		else if (subCommand == 'solar-global') {
 			const date = (interaction.options.getString('sol-glo-date') != undefined) ? functions.ParseDate(interaction.options.getString('sol-glo-date')) : new Date();
+			let eclipse = Astronomy.SearchGlobalSolarEclipse(date);
+			return interaction.reply(functions.printEclipse(eclipse, 'solar-global'));
 		}
 		else if (subCommand == 'lunar') {
 			const date = (interaction.options.getString('lun-date') != undefined) ? functions.ParseDate(interaction.options.getString('lun-date')) : new Date();
-			return interaction.reply(functions.printEclipse(Astronomy.SearchLunarEclipse(date)))
+			let eclipse = Astronomy.SearchLunarEclipse(date)
+			return interaction.reply(functions.printEclipse(eclipse, 'lunar'))
 		}
 
 	},
