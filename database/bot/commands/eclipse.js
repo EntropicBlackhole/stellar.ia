@@ -3,6 +3,9 @@ const functions = require('../functions');
 const Astronomy = require('astronomy-engine/astronomy.js');
 
 module.exports = {
+	name: "Eclipse",
+	description: "Shows with accuracy the time and date of the next eclipse! It could be lunar, solar locally, or solar globally! You can input a date to check the next eclipse after that!",
+	usage: "[lunar, solar-local, solar-global] <date?>",
 	data: new SlashCommandBuilder()
 		.setName('eclipse')
 		.setDescription('Outputs the next eclipse (solar/lunar) after a given date or current date')
@@ -48,17 +51,17 @@ module.exports = {
 			let longitude = interaction.options.getNumber('longitude')
 			const observer = new Astronomy.Observer(latitude, longitude, 0);
 			let eclipse = Astronomy.SearchLocalSolarEclipse(date, observer);
-			return interaction.reply(functions.printEclipse(eclipse, 'solar-local'));
+			return interaction.reply('```' + functions.printEclipse(eclipse, 'solar-local') + '```');
 		}
 		else if (subCommand == 'solar-global') {
 			const date = (interaction.options.getString('sol-glo-date') != undefined) ? functions.ParseDate(interaction.options.getString('sol-glo-date')) : new Date();
 			let eclipse = Astronomy.SearchGlobalSolarEclipse(date);
-			return interaction.reply(functions.printEclipse(eclipse, 'solar-global'));
+			return interaction.reply('```' + functions.printEclipse(eclipse, 'solar-global') + '```');
 		}
 		else if (subCommand == 'lunar') {
 			const date = (interaction.options.getString('lun-date') != undefined) ? functions.ParseDate(interaction.options.getString('lun-date')) : new Date();
 			let eclipse = Astronomy.SearchLunarEclipse(date)
-			return interaction.reply(functions.printEclipse(eclipse, 'lunar'))
+			return interaction.reply('```' + functions.printEclipse(eclipse, 'lunar') + '```')
 		}
 
 	},

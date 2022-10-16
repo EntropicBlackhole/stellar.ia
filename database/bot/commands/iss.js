@@ -6,6 +6,9 @@ let url = "https://api.wheretheiss.at/v1/satellites/25544";
 let coordsURL = "https://api.wheretheiss.at/v1/coordinates/";
 
 module.exports = {
+	name: "ISS",
+	description: "Where is the ISS?!",
+	usage: "None",
 	data: new SlashCommandBuilder()
 		.setName('iss')
 		.setDescription('Get the current position of the ISS'),
@@ -18,7 +21,6 @@ module.exports = {
 		let coordsData = await fetch(`${coordsURL}${latitude},${longitude}`).then(
 			(res) => res.json()
 		);
-		console.log(coordsData)
 		let { country_code } = coordsData;
 
 		let hoveringCountry = countries.find((n) => n.isoCode === country_code);

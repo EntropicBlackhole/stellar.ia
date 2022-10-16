@@ -5,6 +5,9 @@ const { NASA_API_KEY } = require('../config.json');
 const url = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`
 
 module.exports = {
+	name: "APOD",
+	description: "Shows you the Astronomy Picture Of the Day!",
+	usage: "None",
 	data: new SlashCommandBuilder()
 		.setName('apod')
 		.setDescription('Astronomy picture of the day'),

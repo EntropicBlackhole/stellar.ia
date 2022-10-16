@@ -6,7 +6,8 @@ exports.subStrBetweenChar = subStrBetweenChar
 exports.DisplayEvent = DisplayEvent
 exports.randomColor = randomColor
 exports.shortenText = shortenText
-
+exports.Format = Format
+exports.ParseNumber = ParseNumber
 function Pad(s, w) {
 	s = s.toFixed(0);
 	while (s.length < w) {
@@ -16,7 +17,7 @@ function Pad(s, w) {
 }
 function DisplayEvent(name, evt) {
 	let text = evt ? evt.date.toISOString() : '';
-	return (name.padEnd(32) + ' : ' + functions.ParseDate(text));
+	return (name.padEnd(28) + ' : ' + ParseDate(text).toUTCString());
 }
 function FormatDate(t) {
 	const date = t.date;
@@ -75,6 +76,17 @@ function ParseDate(text) {
 		return null
 	}
 	return d;
+}
+function Format(x) {
+	return x.toFixed(2).padStart(8);
+}
+function ParseNumber(text, name) {
+	const x = Number(text);
+	if (!Number.isFinite(x)) {
+		console.error(`ERROR: Not a valid numeric value for ${name}: "${text}"`);
+		process.exit(1);
+	}
+	return x;
 }
 function subStrBetweenChar(string, start, end) {
 	return string.split(start)[1].split(end)[0]
