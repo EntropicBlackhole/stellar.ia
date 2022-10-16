@@ -22,7 +22,7 @@ module.exports = {
 		out += DisplayEvent('December solstice (Winter start)', seasons.dec_solstice);
 		interaction.reply(out);
 	},
-};
+}; 
 
 function DisplayEvent(name, evt) {
 	let text = evt ? evt.date.toISOString() : '';

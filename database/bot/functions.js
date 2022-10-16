@@ -1,11 +1,12 @@
-// import Astronomy from 'astronomy-engine'
-
 exports.Pad = Pad
 exports.FormatDate = FormatDate
 exports.printEclipse = printEclipse
 exports.ParseDate = ParseDate
 exports.subStrBetweenChar = subStrBetweenChar
 exports.DisplayEvent = DisplayEvent
+exports.randomColor = randomColor
+exports.shortenText = shortenText
+
 function Pad(s, w) {
 	s = s.toFixed(0);
 	while (s.length < w) {
@@ -13,12 +14,10 @@ function Pad(s, w) {
 	}
 	return s;
 }
-
 function DisplayEvent(name, evt) {
 	let text = evt ? evt.date.toISOString() : '';
 	return (name.padEnd(32) + ' : ' + functions.ParseDate(text));
 }
-
 function FormatDate(t) {
 	const date = t.date;
 	var year = Pad(date.getUTCFullYear(), 4);
@@ -30,7 +29,6 @@ function FormatDate(t) {
 	var second = Pad(Math.round(svalue), 2);
 	return `${year}-${month}-${day} ${hour}:${minute}:${second} UTC`;
 }
-
 function printEclipse(e, type) {
 	const MINUTES_PER_DAY = 24 * 60;
 	let out = ""
@@ -70,7 +68,6 @@ function printEclipse(e, type) {
 	} else return `Error: ${type} is not a valid type of eclipse`;
 	return out;
 }
-
 function ParseDate(text) {
 	const d = new Date(text);
 	if (!Number.isFinite(d.getTime())) {
@@ -79,8 +76,17 @@ function ParseDate(text) {
 	}
 	return d;
 }
-
 function subStrBetweenChar(string, start, end) {
 	return string.split(start)[1].split(end)[0]
 }
-
+function randomColor() {
+	return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+function shortenText(text, delimiter, max) {
+	if (text.length <= max) return text;
+	else {
+		newText = text.toString().split(delimiter.toString())
+		newText.pop();
+		return shortenText(newText.join(delimiter), delimiter, max);
+	}
+}
