@@ -12,6 +12,7 @@ module.exports = {
 		.setName('apod')
 		.setDescription('Astronomy picture of the day'),
 	async execute(interaction, client) {
+		// await interaction.deferReply();
 		let data = await fetch(url).then(res => res.json());
 		const apodEmbed = new EmbedBuilder()
 			.setTitle(data.title)

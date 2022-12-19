@@ -35,6 +35,9 @@ client.once("ready", () => {
 });
 
 client.on('interactionCreate', async interaction => {
+	var d = new Date();
+	var n = d.toLocaleString();
+	console.log(interaction.user.id + "|" + n)
 	if (!interaction.isChatInputCommand()) return;
 	const command = interaction.client.commands.get(interaction.commandName);
 	if (!command) return;

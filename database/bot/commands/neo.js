@@ -14,7 +14,7 @@ module.exports = {
 		.setName('neo')
 		.setDescription('Near earth objects'),
 	async execute(interaction, client) {
-		interaction.deferReply();
+		await interaction.deferReply();
 		let data = await fetch(url).then((res) => res.json());
 		// console.log(data)
 		//  console.log(data.near_earth_objects["2022-10-16"])

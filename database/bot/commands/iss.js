@@ -13,7 +13,7 @@ module.exports = {
 		.setName('iss')
 		.setDescription('Get the current position of the ISS'),
 	async execute(interaction, client) {
-		interaction.deferReply();
+		await interaction.deferReply();
 		let data = await fetch(url).then((res) => res.json());
 		let { latitude, longitude, altitude, velocity, visibility, footprint } =
 			data;
@@ -27,9 +27,9 @@ module.exports = {
 		country_code = `:flag_${country_code.toLowerCase()}:`
 			if (hoveringCountry?.name == undefined) {
 				hoveringCountry = {
-					name: "Can't detect! (Oceans maybe?)"
+					name: "Oceans!"
 				}
-				country_code = ':pirate_flag:'
+				country_code = ':ocean:'
 			}
 		let embed = new EmbedBuilder()
 			.setTitle("ISS Current Location")
@@ -55,7 +55,7 @@ module.exports = {
 					inline: true,
 				},
 				{
-					name: "Attitude:",
+					name: "Altitude:",
 					value: `${altitude.toFixed(5)} km`,
 					inline: true,
 				},

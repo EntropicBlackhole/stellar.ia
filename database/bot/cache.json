@@ -132,5 +132,184 @@
         "engine": "https://www.npmjs.com/package/astronomy-engine"
       }
     }
+  },
+  "1026965917634146396": {
+    "planets_visible": {
+      "meta": {
+        "time": "2022-10-19T23:13:55+00:00",
+        "engineVersion": "2.1.5",
+        "latitude": -12,
+        "longitude": -96.84,
+        "elevation": 0,
+        "aboveHorizon": true
+      },
+      "data": [
+        {
+          "name": "Sun",
+          "constellation": "Virgo",
+          "rightAscension": {
+            "negative": false,
+            "hours": 13,
+            "minutes": 38,
+            "seconds": 44,
+            "raw": 13.645561877726141
+          },
+          "declination": {
+            "negative": true,
+            "degrees": 10,
+            "arcminutes": 15,
+            "arcseconds": 0.8,
+            "raw": -10.25023271025896
+          },
+          "altitude": 16.27484321539839,
+          "azimuth": 262.6770066309149,
+          "aboveHorizon": true,
+          "magnitude": -26.750913396399852,
+          "nakedEyeObject": true
+        },
+        {
+          "name": "Mercury",
+          "constellation": "Virgo",
+          "rightAscension": {
+            "negative": false,
+            "hours": 12,
+            "minutes": 53,
+            "seconds": 15.4,
+            "raw": 12.88760172715509
+          },
+          "declination": {
+            "negative": true,
+            "degrees": 3,
+            "arcminutes": 34,
+            "arcseconds": 21.7,
+            "raw": -3.572698216900151
+          },
+          "altitude": 3.934899174414312,
+          "azimuth": 267.17779210055664,
+          "aboveHorizon": true,
+          "magnitude": -0.9880251653121769,
+          "nakedEyeObject": true
+        },
+        {
+          "name": "Venus",
+          "constellation": "Virgo",
+          "rightAscension": {
+            "negative": false,
+            "hours": 13,
+            "minutes": 37,
+            "seconds": 33.3,
+            "raw": 13.625917087272551
+          },
+          "declination": {
+            "negative": true,
+            "degrees": 8,
+            "arcminutes": 55,
+            "arcseconds": 42.6,
+            "raw": -8.928491163056401
+          },
+          "altitude": 15.762742923154931,
+          "azimuth": 263.98028443274313,
+          "aboveHorizon": true,
+          "magnitude": -3.984197219229497,
+          "nakedEyeObject": true
+        },
+        {
+          "name": "Jupiter",
+          "constellation": "Pisces",
+          "rightAscension": {
+            "negative": false,
+            "hours": 0,
+            "minutes": 5,
+            "seconds": 3.7,
+            "raw": 0.08436757109639934
+          },
+          "declination": {
+            "negative": true,
+            "degrees": 1,
+            "arcminutes": 9,
+            "arcseconds": 53.8,
+            "raw": -1.1649339730448192
+          },
+          "altitude": 8.829552761280056,
+          "azimuth": 89.31336409801936,
+          "aboveHorizon": true,
+          "magnitude": -2.8696148525326155,
+          "nakedEyeObject": true
+        },
+        {
+          "name": "Saturn",
+          "constellation": "Capricornus",
+          "rightAscension": {
+            "negative": false,
+            "hours": 21,
+            "minutes": 25,
+            "seconds": 43.9,
+            "raw": 21.42887216322712
+          },
+          "declination": {
+            "negative": true,
+            "degrees": 16,
+            "arcminutes": 29,
+            "arcseconds": 36,
+            "raw": -16.493342192201197
+          },
+          "altitude": 49.701612827278794,
+          "azimuth": 101.42656824581856,
+          "aboveHorizon": true,
+          "magnitude": 0.47183409441453605,
+          "nakedEyeObject": true
+        },
+        {
+          "name": "Neptune",
+          "constellation": "Aquarius",
+          "rightAscension": {
+            "negative": false,
+            "hours": 23,
+            "minutes": 36,
+            "seconds": 39.4,
+            "raw": 23.610931710473036
+          },
+          "declination": {
+            "negative": true,
+            "degrees": 3,
+            "arcminutes": 50,
+            "arcseconds": 19.9,
+            "raw": -3.838862617753875
+          },
+          "altitude": 16.3188806170983,
+          "azimuth": 90.52069612991326,
+          "aboveHorizon": true,
+          "magnitude": 7.827274286607836,
+          "nakedEyeObject": false
+        },
+        {
+          "name": "Pluto",
+          "constellation": "Sagittarius",
+          "rightAscension": {
+            "negative": false,
+            "hours": 19,
+            "minutes": 54,
+            "seconds": 22.2,
+            "raw": 19.906159842809693
+          },
+          "declination": {
+            "negative": true,
+            "degrees": 23,
+            "arcminutes": 4,
+            "arcseconds": 59.7,
+            "raw": -23.0832431466202
+          },
+          "altitude": 69.16573935678424,
+          "azimuth": 124.64038621903607,
+          "aboveHorizon": true,
+          "magnitude": 14.459907564176532,
+          "nakedEyeObject": false
+        }
+      ],
+      "links": {
+        "self": "http://visible-planets-api.herokuapp.com/v3?latitude=-12&longitude=-76%7D",
+        "engine": "https://www.npmjs.com/package/astronomy-engine"
+      }
+    }
   }
 }
